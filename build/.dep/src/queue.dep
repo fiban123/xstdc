@@ -1,0 +1,9 @@
+build/.obj/fast/src/queue.obj: src/queue.c include/xstdc/queue.h \
+  include/xstdc/alloc.h include/xstdc/types.h include/xstdc/assert.h \
+  include/xstdc/mem.h src/growth.h
+include/xstdc/queue.h:
+include/xstdc/alloc.h:
+include/xstdc/types.h:
+include/xstdc/assert.h:
+include/xstdc/mem.h:
+src/growth.h:

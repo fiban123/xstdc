@@ -1,0 +1,16 @@
+build/sort_bench.out: benchmarks/sort_bench.c include/xstdc/alloc.h \
+  include/xstdc/types.h include/xstdc/mem.h include/xstdc/print.h \
+  include/xstdc/stream.h include/xstdc/string.h include/xstdc/assert.h \
+  include/xstdc/rng.h include/xstdc/sort.h include/xstdc/time.h \
+  include/xstdc/timezones.h
+include/xstdc/alloc.h:
+include/xstdc/types.h:
+include/xstdc/mem.h:
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/string.h:
+include/xstdc/assert.h:
+include/xstdc/rng.h:
+include/xstdc/sort.h:
+include/xstdc/time.h:
+include/xstdc/timezones.h:

@@ -1,0 +1,10 @@
+build/.obj/fast/src/print.obj: src/print.c include/xstdc/print.h \
+  include/xstdc/stream.h include/xstdc/mem.h include/xstdc/types.h \
+  include/xstdc/string.h include/xstdc/alloc.h include/xstdc/assert.h
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/mem.h:
+include/xstdc/types.h:
+include/xstdc/string.h:
+include/xstdc/alloc.h:
+include/xstdc/assert.h:

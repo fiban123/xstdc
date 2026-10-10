@@ -1,0 +1,12 @@
+build/file_test.out: tests/file_test.c include/xstdc/assert.h \
+  include/xstdc/types.h include/xstdc/file.h include/xstdc/stream.h \
+  include/xstdc/mem.h include/xstdc/string.h include/xstdc/alloc.h \
+  include/xstdc/print.h
+include/xstdc/assert.h:
+include/xstdc/types.h:
+include/xstdc/file.h:
+include/xstdc/stream.h:
+include/xstdc/mem.h:
+include/xstdc/string.h:
+include/xstdc/alloc.h:
+include/xstdc/print.h:

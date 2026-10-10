@@ -1,0 +1,13 @@
+build/math_test.out: tests/math_test.c include/xstdc/assert.h \
+  include/xstdc/types.h include/xstdc/math.h include/xstdc/print.h \
+  include/xstdc/stream.h include/xstdc/mem.h include/xstdc/string.h \
+  include/xstdc/alloc.h include/xstdc/rng.h
+include/xstdc/assert.h:
+include/xstdc/types.h:
+include/xstdc/math.h:
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/mem.h:
+include/xstdc/string.h:
+include/xstdc/alloc.h:
+include/xstdc/rng.h:

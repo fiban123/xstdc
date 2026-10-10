@@ -1,0 +1,4 @@
+build/.obj/fast/src/process.obj: src/process.c include/xstdc/process.h \
+  include/xstdc/types.h
+include/xstdc/process.h:
+include/xstdc/types.h:

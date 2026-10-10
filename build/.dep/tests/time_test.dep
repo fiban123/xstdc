@@ -1,0 +1,13 @@
+build/time_test.out: tests/time_test.c include/xstdc/assert.h \
+  include/xstdc/types.h include/xstdc/mem.h include/xstdc/print.h \
+  include/xstdc/stream.h include/xstdc/string.h include/xstdc/alloc.h \
+  include/xstdc/time.h include/xstdc/timezones.h
+include/xstdc/assert.h:
+include/xstdc/types.h:
+include/xstdc/mem.h:
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/string.h:
+include/xstdc/alloc.h:
+include/xstdc/time.h:
+include/xstdc/timezones.h:

@@ -1,0 +1,8 @@
+build/.obj/fast/src/sort.obj: src/sort.c include/xstdc/sort.h \
+  include/xstdc/alloc.h include/xstdc/types.h include/xstdc/assert.h \
+  include/xstdc/mem.h
+include/xstdc/sort.h:
+include/xstdc/alloc.h:
+include/xstdc/types.h:
+include/xstdc/assert.h:
+include/xstdc/mem.h:

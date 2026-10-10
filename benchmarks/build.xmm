@@ -1,0 +1,24 @@
+srcs = glob("*.c");
+
+exes = patsubst(srcs, "@prefix/%.c", "@build_dir/%.out");
+deps = patsubst(srcs, "%.c", "@dep_dir/%.dep");
+string_vec bench_ldflags = [ldflags, "-Wl,-Bstatic", "-L@build_dir", "-lxstdc", "-Wl,-Bdynamic", "-lm"];
+string_vec bench_cflags = cflags;
+
+depimport deps;
+
+create_parent(deps);
+create_parent(exes);
+
+for src, exe, dep in srcs, exes, deps{
+    exe, dep requires src, fast_static_lib: {
+        compile(src, exe)
+        $ @cc @bench_cflags @bench_ldflags @includes -MMD -MP -MF @dep @src -o @exe;
+    }
+}
+
+duplicate phony clean: {
+    $ rm -f @exes;
+}
+
+phony benchmarks requires exes: {}

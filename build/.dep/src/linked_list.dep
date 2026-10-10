@@ -1,0 +1,8 @@
+build/.obj/fast/src/linked_list.obj: src/linked_list.c \
+  include/xstdc/linked_list.h include/xstdc/alloc.h \
+  include/xstdc/types.h include/xstdc/assert.h include/xstdc/mem.h
+include/xstdc/linked_list.h:
+include/xstdc/alloc.h:
+include/xstdc/types.h:
+include/xstdc/assert.h:
+include/xstdc/mem.h:

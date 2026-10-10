@@ -1,0 +1,12 @@
+build/hashmap_test.out: tests/hashmap_test.c include/xstdc/hashmap.h \
+  include/xstdc/alloc.h include/xstdc/types.h include/xstdc/assert.h \
+  include/xstdc/mem.h include/xstdc/print.h include/xstdc/stream.h \
+  include/xstdc/string.h
+include/xstdc/hashmap.h:
+include/xstdc/alloc.h:
+include/xstdc/types.h:
+include/xstdc/assert.h:
+include/xstdc/mem.h:
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/string.h:

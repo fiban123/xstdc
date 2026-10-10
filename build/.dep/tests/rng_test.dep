@@ -1,0 +1,6 @@
+build/rng_test.out: tests/rng_test.c include/xstdc/assert.h \
+  include/xstdc/types.h include/xstdc/rng.h include/xstdc/mem.h
+include/xstdc/assert.h:
+include/xstdc/types.h:
+include/xstdc/rng.h:
+include/xstdc/mem.h:

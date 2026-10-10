@@ -1,0 +1,18 @@
+build/hashmap_bench.out: benchmarks/hashmap_bench.c \
+  benchmarks/../extern/khash/khash.h include/xstdc/hashmap.h \
+  include/xstdc/alloc.h include/xstdc/types.h include/xstdc/assert.h \
+  include/xstdc/mem.h include/xstdc/print.h include/xstdc/stream.h \
+  include/xstdc/string.h include/xstdc/rng.h include/xstdc/time.h \
+  include/xstdc/timezones.h
+benchmarks/../extern/khash/khash.h:
+include/xstdc/hashmap.h:
+include/xstdc/alloc.h:
+include/xstdc/types.h:
+include/xstdc/assert.h:
+include/xstdc/mem.h:
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/string.h:
+include/xstdc/rng.h:
+include/xstdc/time.h:
+include/xstdc/timezones.h:

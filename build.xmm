@@ -1,0 +1,86 @@
+string cc = "clang";
+string ar = "llvm-ar";
+
+path notarget src_dir = "src/";
+path notarget build_dir = "build";
+path notarget obj_dir = "@build_dir/.obj/";
+path notarget dep_dir = "@build_dir/.dep/";
+path notarget tests_dir = "tests/";
+
+string_vec cflags = ["-std=gnu11", "-Wall", "-g", "-fPIC"];
+string_vec includes = ["-Iinclude/"];
+string_vec ldflags = ["-fuse-ld=lld", "-L/usr/local/lib/", "-lmimalloc", "-lm"];
+string_vec dbg_defs = ["-DXSTDC_ALWAYS_ASSERT", "-DXSTDC_ALWAYS_DEBUG_ALLOC"];
+string_vec dbg_ldflags = ["-rdynamic"];
+
+if (getenv("fast") == "1"){
+    cflags += ["-O3", "-march=native"];
+}
+
+path fast_static_lib = "@build_dir/libxstdc.a";
+path fast_shared_lib = "@build_dir/libxstdc.so";
+path dbg_static_lib = "@build_dir/libxstdc_dbg.a";
+path dbg_shared_lib = "@build_dir/libxstdc_dbg.so";
+
+import "tests/build.xmm";
+import "benchmarks/build.xmm";
+
+path notarget fast_obj_dir = "@build_dir/.obj/fast/";
+path notarget dbg_obj_dir = "@build_dir/.obj/dbg/";
+
+srcs = glob("src/*.c");
+fast_objs = patsubst(srcs, "%.c", "@fast_obj_dir/%.obj");
+dbg_objs = patsubst(srcs, "%.c", "@dbg_obj_dir/%.obj");
+deps = patsubst(srcs, "%.c", "@dep_dir/%.dep");
+
+depimport deps;
+
+create_parent(deps);
+create_parent(fast_objs);
+create_parent(dbg_objs);
+
+for src, obj, dep in srcs, fast_objs, deps{
+    obj, dep requires src, "build.xmm": {
+        compile(src, obj)
+        $ @cc @cflags @includes -MMD -MP -MF @dep -c @src -o @obj;
+    }
+}
+
+for src, obj, dep in srcs, dbg_objs, deps{
+    obj requires src, "build.xmm": {
+        $ @cc @cflags @dbg_defs @includes -c @src -o @obj;
+    }
+}
+
+fast_static_lib requires fast_objs:{
+    $ @ar rcsD @fast_static_lib @fast_objs;
+}
+fast_shared_lib requires fast_objs:{
+    $ @cc @ldflags @fast_objs -shared -o @fast_shared_lib;
+}
+dbg_static_lib requires dbg_objs:{
+    $ @ar rcsD @dbg_static_lib @dbg_objs;
+}
+dbg_shared_lib requires dbg_objs:{
+    $ @cc @ldflags @dbg_ldflags @dbg_objs -shared -o @dbg_shared_lib;
+}
+
+duplicate phony clean: {
+    $ rm -f @fast_objs @dbg_objs @fast_shared_lib @fast_static_lib @dbg_shared_lib @dbg_static_lib;
+}
+
+phony install:{
+    $ sudo install -m 644 build/libxstdc{,_dbg}.a /usr/local/lib/;
+    $ sudo install -m 755 build/libxstdc{,_dbg}.so /usr/local/lib/;
+
+    $ sudo mkdir -p /usr/local/include/xstdc;
+    $ sudo install -m 644 include/xstdc/*.h /usr/local/include/xstdc/;
+}
+
+default phony all requires dbg_static_lib, dbg_shared_lib, fast_shared_lib, fast_static_lib: {}
+
+// Optional MPFR/GMP accuracy survey; not part of the default build.
+path math_accuracy = "@build_dir/math_accuracy.out";
+math_accuracy requires "tools/math_accuracy.c", fast_static_lib: {
+    $ @cc @cflags -fno-builtin @includes tools/math_accuracy.c @fast_static_lib @ldflags -lmpfr -lgmp -o @math_accuracy;
+}

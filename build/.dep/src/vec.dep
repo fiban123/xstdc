@@ -1,0 +1,9 @@
+build/.obj/fast/src/vec.obj: src/vec.c include/xstdc/vec.h \
+  include/xstdc/alloc.h include/xstdc/types.h include/xstdc/assert.h \
+  include/xstdc/mem.h src/growth.h
+include/xstdc/vec.h:
+include/xstdc/alloc.h:
+include/xstdc/types.h:
+include/xstdc/assert.h:
+include/xstdc/mem.h:
+src/growth.h:

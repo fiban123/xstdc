@@ -1,0 +1,4 @@
+build/rng_bench.out: benchmarks/rng_bench.c include/xstdc/rng.h \
+  include/xstdc/types.h
+include/xstdc/rng.h:
+include/xstdc/types.h:

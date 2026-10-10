@@ -1,0 +1,12 @@
+build/.obj/fast/src/time.obj: src/time.c include/xstdc/assert.h \
+  include/xstdc/types.h include/xstdc/time.h include/xstdc/string.h \
+  include/xstdc/alloc.h include/xstdc/mem.h include/xstdc/timezones.h \
+  src/time_scales.inc
+include/xstdc/assert.h:
+include/xstdc/types.h:
+include/xstdc/time.h:
+include/xstdc/string.h:
+include/xstdc/alloc.h:
+include/xstdc/mem.h:
+include/xstdc/timezones.h:
+src/time_scales.inc:

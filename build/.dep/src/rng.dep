@@ -1,0 +1,5 @@
+build/.obj/fast/src/rng.obj: src/rng.c include/xstdc/rng.h \
+  include/xstdc/mem.h include/xstdc/types.h
+include/xstdc/rng.h:
+include/xstdc/mem.h:
+include/xstdc/types.h:

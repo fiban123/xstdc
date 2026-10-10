@@ -1,0 +1,16 @@
+build/vec_bench.out: benchmarks/vec_bench.c include/xstdc/print.h \
+  include/xstdc/stream.h include/xstdc/mem.h include/xstdc/types.h \
+  include/xstdc/string.h include/xstdc/alloc.h include/xstdc/assert.h \
+  include/xstdc/rng.h include/xstdc/time.h include/xstdc/timezones.h \
+  include/xstdc/vec.h
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/mem.h:
+include/xstdc/types.h:
+include/xstdc/string.h:
+include/xstdc/alloc.h:
+include/xstdc/assert.h:
+include/xstdc/rng.h:
+include/xstdc/time.h:
+include/xstdc/timezones.h:
+include/xstdc/vec.h:

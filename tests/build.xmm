@@ -1,0 +1,24 @@
+srcs = glob("*.c");
+
+exes = patsubst(srcs, "@prefix/%.c", "@build_dir/%.out");
+deps = patsubst(srcs, "%.c", "@dep_dir/%.dep");
+string_vec tests_ldflags = [ldflags, "-Wl,-Bstatic", "-L@build_dir", "-lxstdc_dbg", "-Wl,-Bdynamic", "-lm"];
+string_vec tests_cflags = [cflags, dbg_ldflags];
+
+depimport deps;
+
+create_parent(deps);
+create_parent(exes);
+
+for src, exe, dep in srcs, exes, deps{
+    exe, dep requires src, dbg_static_lib: {
+        compile(src, exe)
+        $ @cc @tests_cflags @tests_ldflags @dbg_defs @includes -MMD -MP -MF @dep @src -o @exe;
+    }
+}
+
+duplicate phony clean: {
+    $ rm -f @exes;
+}
+
+phony tests requires exes: {}

@@ -1,0 +1,12 @@
+build/thread_test.out: tests/thread_test.c include/xstdc/alloc.h \
+  include/xstdc/types.h include/xstdc/assert.h include/xstdc/print.h \
+  include/xstdc/stream.h include/xstdc/mem.h include/xstdc/string.h \
+  include/xstdc/thread.h
+include/xstdc/alloc.h:
+include/xstdc/types.h:
+include/xstdc/assert.h:
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/mem.h:
+include/xstdc/string.h:
+include/xstdc/thread.h:

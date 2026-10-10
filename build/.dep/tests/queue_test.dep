@@ -1,0 +1,13 @@
+build/queue_test.out: tests/queue_test.c include/xstdc/assert.h \
+  include/xstdc/types.h include/xstdc/print.h include/xstdc/stream.h \
+  include/xstdc/mem.h include/xstdc/string.h include/xstdc/alloc.h \
+  include/xstdc/queue.h include/xstdc/rng.h
+include/xstdc/assert.h:
+include/xstdc/types.h:
+include/xstdc/print.h:
+include/xstdc/stream.h:
+include/xstdc/mem.h:
+include/xstdc/string.h:
+include/xstdc/alloc.h:
+include/xstdc/queue.h:
+include/xstdc/rng.h:

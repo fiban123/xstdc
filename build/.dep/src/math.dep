@@ -1,0 +1,4 @@
+build/.obj/fast/src/math.obj: src/math.c include/xstdc/math.h \
+  include/xstdc/types.h
+include/xstdc/math.h:
+include/xstdc/types.h:
